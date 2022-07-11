@@ -1,6 +1,7 @@
 package com.artevcs.forms;
 
 import javax.swing.*;
+import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 
 public class FrmEmpresas extends JFrame {
@@ -38,7 +39,7 @@ public class FrmEmpresas extends JFrame {
         tabla.getColumnModel().getColumn(1).setPreferredWidth(190);
         tabla.getColumnModel().getColumn(2).setPreferredWidth(60);
         tabla.getColumnModel().getColumn(2).setCellRenderer(new ButtonRenderer());
-        tabla.getColumnModel().getColumn(2).setCellEditor(new ButtonEditor(new JCheckBox()));
+        tabla.getColumnModel().getColumn(2).setCellEditor(new ButtonEditor(new JTextField()));
 
         JScrollPane panel = new JScrollPane(tabla);
         add(panel);

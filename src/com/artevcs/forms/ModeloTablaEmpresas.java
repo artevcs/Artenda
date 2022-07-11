@@ -1,5 +1,6 @@
 package com.artevcs.forms;
 
+import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import java.util.*;
 
@@ -12,7 +13,7 @@ public class ModeloTablaEmpresas extends AbstractTableModel {
         super();
         addColumn("Id");
         addColumn("Empresa");
-        addColumn("Ver");
+        addColumn("");
 
         Object[] fila1 = new Object[3];
         fila1[0] = "AR";
@@ -25,14 +26,6 @@ public class ModeloTablaEmpresas extends AbstractTableModel {
         fila2[1] = "CUSAEM";
         fila2[2] = "Ver";
         addRow(fila2);
-    }
-
-    private void addColumn(String nombreColumna){
-        nombresDeColumna.add(nombreColumna);
-    }
-
-    public void addRow(Object[] fila){
-        filas.add(fila);
     }
 
     @Override
@@ -48,5 +41,21 @@ public class ModeloTablaEmpresas extends AbstractTableModel {
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         return filas.get(rowIndex)[columnIndex];
+    }
+
+    private void addColumn(String nombreColumna){
+        nombresDeColumna.add(nombreColumna);
+    }
+
+    public void addRow(Object[] fila){
+        filas.add(fila);
+    }
+
+    public String getColumnName(int column){
+        return nombresDeColumna.get(column);
+    }
+
+    public Class getColumnClass(int column){
+        return getValueAt(0, column).getClass();
     }
 }
